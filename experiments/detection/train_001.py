@@ -15,9 +15,9 @@ On top of that, for training Faster/Mask R-CNN, the default hyperparameters are
 Also, if you train Keypoint R-CNN, the default hyperparameters are
     --epochs 46 --lr-steps 36 43 --aspect-ratio-group-factor 3
 Because the number of images is smaller in the person keypoint subset of COCO,
+test
 the number of epochs should be adapted so that we have the same number of iterations.
 """
-# zona
 
 import datetime
 import os

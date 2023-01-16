@@ -13,7 +13,7 @@
             "justMyCode": true
         },
         {
-            "name": "torchrun train_001",
+            "name": "001_train",
             "type": "python",
             "request": "launch",
             "program": "${env:CONDA_PREFIX}/bin/torchrun",
@@ -22,7 +22,7 @@
             "args": [
                 "--nproc_per_node", "2",
                 "experiments/detection/train_001.py",
-                "--output_dir", "experiments/output/train_001",
+                "--output_dir", "experiments/output/001_train",
                 "--dataset", "coco",
                 "--model", "fasterrcnn_resnet50_fpn",
                 "--epochs", "26",
@@ -30,7 +30,45 @@
                 "--aspect-ratio-group-factor", "3",
                 "--weights-backbone", "ResNet50_Weights.IMAGENET1K_V1",
             ]
+        },
+        {
+            "name": "010a_fcos_rn50fpn_coco_noweights",
+            "type": "python",
+            "request": "launch",
+            "program": "${env:CONDA_PREFIX}/bin/torchrun",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--nproc_per_node", "2",
+                "experiments/detection/train_001.py",
+                "--output_dir", "experiments/output/010a_fcos_rn50fpn_coco_noweights",
+                "--dataset", "coco",
+                "--model", "fcos_resnet50_fpn",
+                "--epochs", "1",
+                "--lr-steps", "16", "22",
+                "--aspect-ratio-group-factor", "3",
 
+            ]
+        },
+        {
+            "name": "010b_fcos_rn50fpn_coco_weightsV1",
+            "type": "python",
+            "request": "launch",
+            "program": "${env:CONDA_PREFIX}/bin/torchrun",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--nproc_per_node", "2",
+                "experiments/detection/train_001.py",
+                "--output_dir", "experiments/output/010b_fcos_rn50fpn_coco_inv1weights",
+                "--dataset", "coco",
+                "--model", "fcos_resnet50_fpn",
+                "--epochs", "1",
+                "--weights-backbone", "IMAGENET1K_V1",
+                "--lr-steps", "16", "22",
+                "--aspect-ratio-group-factor", "3",
+
+            ]
         },
     ]
 }

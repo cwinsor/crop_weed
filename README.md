@@ -1,6 +1,8 @@
 # crop_weed
-Torch-based vision research using crop/weed datasets
+Torch-based machine vision using crop/weed datasets.
 
-It is necessary to set path to the reference code under /vision ... for example:
-export PYTHONPATH=/mnt/d/code_crop_weed/crop_weed/vision/references/detection/
+This repo is a set of machine vision experiments using Weed/Crop datasets. The architecture is torchvision. The code is based on examples from https://github.com/pytorch/vision/references/detection. Datasets and models include:
 
+* a
+
+For details see RECIPE.md

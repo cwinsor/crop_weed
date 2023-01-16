@@ -41,13 +41,12 @@
             "args": [
                 "--nproc_per_node", "2",
                 "experiments/detection/train_001.py",
-                "--output_dir", "experiments/output/010a_fcos_rn50fpn_coco_noweights",
+                "--output_dir", "experiments/output/010a_vscode",
                 "--dataset", "coco",
                 "--model", "fcos_resnet50_fpn",
                 "--epochs", "1",
                 "--lr-steps", "16", "22",
                 "--aspect-ratio-group-factor", "3",
-
             ]
         },
         {
@@ -60,7 +59,7 @@
             "args": [
                 "--nproc_per_node", "2",
                 "experiments/detection/train_001.py",
-                "--output_dir", "experiments/output/010b_fcos_rn50fpn_coco_inv1weights",
+                "--output_dir", "experiments/output/010b_vscode",
                 "--dataset", "coco",
                 "--model", "fcos_resnet50_fpn",
                 "--epochs", "1",

@@ -6,7 +6,7 @@ To run in a multi-gpu environment, use the distributed launcher::
         train.py ... --world-size $NGPU
 
 The default hyperparameters are tuned for training on 8 gpus and 2 images per gpu.
-    --lr 0.02 --batch-size 2 --world-size 8
+    --lr 0.02 --batch_size 2 --world-size 8
 If you use different number of gpus, the learning rate should be changed to 0.02/8*$NGPU.
 
 On top of that, for training Faster/Mask R-CNN, the default hyperparameters are
@@ -22,6 +22,8 @@ the number of epochs should be adapted so that we have the same number of iterat
 import datetime
 import os
 import time
+from datetime import timedelta
+import logging
 
 import presets
 import torch
@@ -72,7 +74,7 @@ def get_args_parser(add_help=True):
     parser.add_argument("--model", default="maskrcnn_resnet50_fpn", type=str, help="model name")
     parser.add_argument("--device", default="cuda", type=str, help="device (Use cuda or cpu Default: cuda)")
     parser.add_argument(
-        "-b", "--batch-size", default=2, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
+        "-b", "--batch_size", default=2, type=int, help="images per gpu, the total batch size is $NGPU x batch_size"
     )
     parser.add_argument("--epochs", default=26, type=int, metavar="N", help="number of total epochs to run")
     parser.add_argument(
@@ -170,7 +172,10 @@ def main(args):
         utils.mkdir(args.output_dir)
 
     utils.init_distributed_mode(args)
-    print(args)
+    print("The experiment will be stored in %s\n" % args.output_dir)
+    for k, v in sorted(dict(vars(args)).items()):
+        print("{} {}".format(k,v))
+    print('---')
 
     device = torch.device(args.device)
 
@@ -178,9 +183,9 @@ def main(args):
         torch.use_deterministic_algorithms(True)
 
     # Data loading code
-    print("Loading data")
-
+    print("Loading train data")
     dataset, num_classes = get_dataset(args.dataset, "train", get_transform(True, args), args.data_path)
+    print("Loading val data")
     dataset_test, _ = get_dataset(args.dataset, "val", get_transform(False, args), args.data_path)
 
     print("Creating data loaders")

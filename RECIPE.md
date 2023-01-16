@@ -18,11 +18,23 @@ Architecture is Torchvision with Multi-GPU support is by torchrun. The tests are
 
 With respect to (CR/LF) injection we use the generally-accepted approach whereby Windows environments convert to (CR/LF) during local work but convert back to Linux-style (LF) during commit. This is the default setting for git in Windows. In bash the git command to ignore these local changes is "git config --global core.autocrlf input" (details see https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_core_autocrlf). Bottom line: Windows users should commit using linx-style.
 
-# Datasets:
-Models:
+## Datasets:
+* x
+* y
+
+## Model Backbone and Pre-trained Weights
+* x
+* y
+
+## Re-training Algorithm
+* x
+* y
+
+## Re-training Metrics
+* x
 
 
-# Recipe:
+# Recipe (how to deploy/run)
 
 1. From Win10 enable WSL (ref?) Ubuntu 20
 1. All following are within WSL:

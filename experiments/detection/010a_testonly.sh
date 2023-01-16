@@ -32,4 +32,5 @@ train_001.py \
 --lr-steps 16 22 \
 --aspect-ratio-group-factor 3 \
 --batch_size $BATCH_SIZE \
+--test-only \
 2>&1 | tee $OUTDIR/run.log

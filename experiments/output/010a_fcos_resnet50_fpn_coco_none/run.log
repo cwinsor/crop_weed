@@ -1,0 +1,48 @@
+WARNING:torch.distributed.run:
+*****************************************
+Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+*****************************************
+| distributed init (rank 0): env://
+| distributed init (rank 1): env://
+The experiment will be stored in ../output/010a_fcos_resnet50_fpn_coco_none
+
+amp False
+aspect_ratio_group_factor 3
+batch_size 2
+data_augmentation hflip
+data_path /mnt/d/dataset_coco_cocoapi/cocoapi/coco/
+dataset coco
+device cuda
+dist_backend nccl
+dist_url env://
+distributed True
+epochs 1
+gpu 0
+lr 0.02
+lr_gamma 0.1
+lr_scheduler multisteplr
+lr_step_size 8
+lr_steps [16, 22]
+model fcos_resnet50_fpn
+momentum 0.9
+norm_weight_decay None
+opt sgd
+output_dir ../output/010a_fcos_resnet50_fpn_coco_none
+print_freq 20
+rank 0
+resume 
+rpn_score_thresh None
+start_epoch 0
+sync_bn False
+test_only True
+trainable_backbone_layers None
+use_copypaste False
+use_deterministic_algorithms False
+weight_decay 0.0001
+weights None
+weights_backbone None
+workers 4
+world_size 2
+---
+Loading train data
+loading annotations into memory...
